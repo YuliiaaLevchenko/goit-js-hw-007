@@ -10,11 +10,18 @@ const createButton = controls.querySelector('[data-create]');
 const destroyButton = controls.querySelector('[data-destroy]');
 const boxesContainer = document.getElementById('boxes');
 
-createButton.addEventListener('click', createBoxes);
-destroyButton.addEventListener('click', destroyBoxes);
+createButton.addEventListener('click', onCreateBtnClick);
+destroyButton.addEventListener('click', onDestroyBtnClick);
 
-function createBoxes() {
+function onCreateBtnClick(event) {
+  destroyBoxes();
   const amount = input.valueAsNumber;
+  createBoxes(amount)
+}
+
+
+function createBoxes(amount) {
+  
 
   if (amount >= 1 && amount <= 100) {
     const fragment = document.createDocumentFragment();
